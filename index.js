@@ -6,6 +6,39 @@ const inquirer = require('inquirer');
 // Gather manager data
 
     // inquirer.prompt()
+    inquirer
+        .prompt([
+            {
+            type: 'input',
+            message: `What is the team manager's name?`,
+            name: 'managerName',
+            },
+            {
+            type: 'input',
+            message: `What is the team manager's id?`,
+            name: 'managerId',
+            },
+            {
+            type: 'input',
+            message: `What is the team manager's email?`,
+            name: 'managerEmail',
+            },
+            {
+            type: 'input',
+            message: `What is the team manager's office number?`,
+            name: 'managerOffice',
+            },
+            {
+            type: 'list',
+            choices: ['Engineer', 'Intern', 'I don\'t want to add any more team members'],
+            message: `Which type of team member would you like to add?`,
+            name: 'addEmployee'
+            },
+        ])
+        .then((response) =>
+            console.log(response),
+            
+        )
 
     // THEN build a Manager object
 
