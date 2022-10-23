@@ -146,39 +146,93 @@ function choicePrompts(){
 
 // Generate the HTML and write it to a file
 function generateHTML(){
-    let html = ``;
+    let employeeHtml = ``
 
     // Loop through each employee in employees
-    for(employee in employees){
+    for(let i = 0; i < employees.length; i++){
+        let employee = employees[i];
+        //console.log(employee);
+
         // See what role they are
         if(employee.getRole() == 'Manager'){
-            html += `<div>
-            <h2>${employee.name}</h2>
-            <h2>${employee.id}</h2>
-            <h2>${employee.email}</h2>
-            <h2>${employee.office}</h2>
-            </div>`;
+            employeeHtml += 
+            `
+                <div class="card">
+                    <div class="title">
+                        <h3>${employee.name}</h3>
+                        <p>Manager</p>
+                    </div>
+                    <div class="container">
+                        <div class="row"><h4>Id:</h4><p>${employee.id}</p></div>
+                        <div class="row"><h4>Email:</h4><p>${employee.email}</p></div>
+                        <div class="row"><h4>Office Number:</h4><p>${employee.office}</p></div>
+                    </div>
+                </div>
+            `;
         }else if(employee.getRole() == 'Engineer'){
-            html += `<div>
-            <h2>${employee.name}</h2>
-            <h2>${employee.id}</h2>
-            <h2>${employee.email}</h2>
-            <a>href="https://github.com/${employee.github}">${employee.github}</a>
-            </div>`;
-        }else {
-            html += `<div>
-            <h2>${employee.name}</h2>
-            <h2>${employee.id}</h2>
-            <h2>${employee.email}</h2>
-            <h2>${employee.school}</h2>
-            </div>`;
+            employeeHtml += 
+            `
+                <div class="card">
+                    <div class="title">
+                        <h3>${employee.name}</h3>
+                        <p>Engineer</P>
+                    </div>
+                    <div class="container">
+                        <div class="row"><h4>Id:</h4><p>${employee.id}</p></div>                   
+                        <div class="row"><h4>Email:</h4><p>${employee.email}</p></div>
+                        <div class="row"><h4>Github Profile:</h4><a href="https://github.com/${employee.github}">${employee.github}</a></div>                   
+                    </div>
+                </div>
+            `;
+        }else if(employee.getRole() == 'Intern'){
+            employeeHtml += 
+            `
+                <div class="card">
+                    <div class="title">
+                        <h3>${employee.name}</h3>
+                        <p>Intern</p>
+                    </div>
+                    <div class="container">
+                        <div class="row"><h4>Id:</h4><p>${employee.id}</p></div>                    
+                        <div class="row"><h4>Email:</h4><p>${employee.email}</p></div>                    
+                        <div class="row"><h4>School:</h4><p>${employee.school}</p></div>                   
+                    </div>
+                </div>
+            `;
         }
-        // Save template to file        
-        fs.writeFile(`./output/output.html`, html, err => {
+
+        let html = 
+        `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>My Team</title>
+            <link rel="stylesheet" href="./style.css">
+        </head>
+    
+        <body>
+            <header>
+                <h1>My Team</h1>
+            </header>
+    
+            <main id="main">
+                ${employeeHtml}
+            </main>
+    
+            <script src="./assets/JS/game.js"></script>
+        </body>
+        </html>
+        `;
+    
+        console.log(html);
+        console.log(employeeHtml);
+        // Output index.html to the dist folder   
+        fs.writeFile('./dist/index.html', html, err => {
             err ? console.error(err) : console.log('Success!')
-        });
+        });    
     }
 }
-
 
 managerPrompts();
