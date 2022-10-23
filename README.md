@@ -3,9 +3,6 @@
 ## Table of Contents
 - [Description](#description)
 - [Usage](#usage)
-- [Installation](#installation)
-- [Tests](#tests)
-- [Questions](#questions)
 
 ## Description
 This is the week 10 project for our class. Using our new knowledge of Objects and Jest, we need to create a team card generator using template literals and inquirer. The HTML  must be generated from our javascript code rather than being written in beforehand. All objects should also pass a series of tests using Jest. The following is the user story and acceptance criteria for the project:
