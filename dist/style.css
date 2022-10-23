@@ -1,0 +1,53 @@
+header{
+    background-color: #3A7D44;
+    text-align: center;
+    color: #D0DB97;
+}
+
+header h1{
+    margin: auto;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 4rem;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    max-width: 500px;
+    max-height: 500px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.title{
+    background-color: #69B578;
+}
+
+.title h3, .title p{
+    margin: 0;
+}
+
+.container{
+    padding: 2px 16px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.row h4, .row p, .row a{
+    margin: 5px;
+    padding: 3px;
+}
